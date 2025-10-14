@@ -30,6 +30,9 @@
       "style": {
         "useConst": "on"
       },
+      "nursery": {
+        "useSortedClasses": "error"
+      },
       "complexity": {
         "noExtraBooleanCast": "error",
         "noUselessCatch": "error"

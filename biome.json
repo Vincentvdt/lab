@@ -1,30 +1,22 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
-  "root": true,
-  "files": {
-    "includes": ["src/**"],
-    "ignoreUnknown": false,
-    "experimentalScannerIgnores": ["dist", "node_modules"]
-  },
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
   },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"],
+    "experimentalScannerIgnores": ["dist", "node_modules"]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 100,
-    "bracketSpacing": true,
-    "expand": "auto",
-    "useEditorconfig": false,
-    "attributePosition": "auto"
+    "indentWidth": 2
   },
   "linter": {
     "enabled": true,
-    "includes": ["src/**/*.{ts,tsx,js,jsx}"],
     "rules": {
       "recommended": true,
       "style": {
@@ -44,29 +36,16 @@
       },
       "suspicious": {
         "noDebugger": "error",
-        "noDuplicateObjectKeys": "error"
+        "noDuplicateObjectKeys": "error",
+        "noUnknownAtRules": "off"
       }
     },
     "domains": {
-      "react": "recommended",
-      "test": "recommended"
+      "next": "recommended",
+      "react": "recommended"
     }
   },
-
-  "javascript": {
-    "jsxRuntime": "reactClassic",
-    "formatter": {
-      "quoteStyle": "double",
-      "jsxQuoteStyle": "double",
-      "trailingCommas": "all",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "always",
-      "bracketSpacing": true
-    }
-  },
-
   "assist": {
-    "enabled": false,
     "actions": {
       "source": {
         "recommended": true,

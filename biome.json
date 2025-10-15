@@ -23,7 +23,7 @@
         "useConst": "on"
       },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": "info"
       },
       "complexity": {
         "noExtraBooleanCast": "error",

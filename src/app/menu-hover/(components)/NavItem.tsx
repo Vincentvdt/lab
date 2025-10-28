@@ -17,12 +17,8 @@ const NavItem = ({
 }: Props) => {
   const { state } = useMenuContext();
 
-  const handleOnMouseEnter = () => {
-    onMouseEnter?.();
-  };
-  const handleOnMouseLeave = () => {
-    onMouseLeave?.();
-  };
+  const handleOnMouseEnter = () => onMouseEnter?.();
+  const handleOnMouseLeave = () => onMouseLeave?.();
 
   return (
     <li

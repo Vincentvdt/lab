@@ -22,10 +22,14 @@ const Header = () => {
 
   const handleOnMouseEnter = (args: Partial<HoverView>) => {
     dispatch({ type: "set", payload: args });
-    dispatch({ type: "set-active", payload: true });
-    state.timeline.timeScale(1).seek(0).play();
+    if (!state.active) {
+      dispatch({ type: "set-active", payload: true });
+      return;
+    }
+    if (state.timeline.reversed()) {
+      state.timeline.timeScale(1).play();
+    }
   };
-
   const handleOnMouseLeave = () => {
     // don’t reset/unmount yet — let reverse play out
     state.timeline.timeScale(1.5).reverse();

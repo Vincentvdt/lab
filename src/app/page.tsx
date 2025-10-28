@@ -7,8 +7,8 @@ export default function Home() {
         <ul>
           <li></li>
           <li>
-            <Link className="hover:underline" href="/gsap-observer">
-              Observer
+            <Link className="hover:underline" href="/menu-hover">
+              Menu Hover
             </Link>
           </li>
         </ul>

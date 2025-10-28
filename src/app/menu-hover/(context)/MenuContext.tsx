@@ -10,7 +10,6 @@ import {
   type Dispatch,
   type ReactNode,
   type Reducer,
-  useCallback,
   useContext,
   useMemo,
   useReducer,
@@ -34,18 +33,9 @@ type Action =
   | { type: "reset" }
   | { type: "set-active"; payload: boolean };
 
-export type AddAnimation = (
-  child: GSAPTimeline | GSAPTween,
-  at?: gsap.Position,
-) => void;
-
-export type RemoveAnimation = (child: GSAPTimeline | GSAPTween) => void;
-
 export type MenuContextValue = {
   state: State;
   dispatch: Dispatch<Action>;
-  add: AddAnimation;
-  remove: RemoveAnimation;
 };
 
 const DEFAULT_VIEW: HoverView = {
@@ -108,27 +98,12 @@ export const MenuProvider = ({ children, initialState }: MenuProviderProps) => {
 
   const [state, dispatch] = useReducer(reducer, initial);
 
-  const add: AddAnimation = useCallback(
-    (child, at) => {
-      state.timeline.add(child, at);
-    },
-    [state.timeline],
-  );
-  const remove: RemoveAnimation = useCallback(
-    (child) => {
-      state.timeline.remove(child);
-    },
-    [state.timeline],
-  );
-
   const value: MenuContextValue = useMemo(
     () => ({
       state,
       dispatch,
-      add,
-      remove,
     }),
-    [state, add, remove],
+    [state],
   );
 
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;

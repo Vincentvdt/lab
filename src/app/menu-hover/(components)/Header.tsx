@@ -1,6 +1,7 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 import NavItem from "@/app/menu-hover/(components)/NavItem";
 import {
   type HoverView,
@@ -41,16 +42,21 @@ const Header = () => {
   };
   return (
     <header className="relative z-20 flex w-full items-center justify-between px-8 py-6">
-      <span className="items-start font-bold">Menu Hover</span>
+      <span
+        className="items-start font-bold"
+        style={state.active ? { color: state.view.routeColor } : {}}
+      >
+        <Link href="/">Menu Hover</Link>
+      </span>
       <nav className="px-4 py-2" onMouseLeave={handleOnMouseLeave}>
         <ul className="flex gap-2 sm:gap-16">
           <NavItem
             onMouseEnter={() =>
               handleOnMouseEnter({
                 name: "Legion",
-                bgColor: "red",
-                routeColor: "green",
-                hoverTextColor: "green",
+                bgColor: "#110402",
+                routeColor: "#d1ed3d",
+                hoverTextColor: "#f28073",
               })
             }
           >
@@ -58,12 +64,26 @@ const Header = () => {
           </NavItem>
           <NavItem
             onMouseEnter={() =>
-              handleOnMouseEnter({ name: "Sahara", bgColor: "orange" })
+              handleOnMouseEnter({
+                name: "Sahara",
+                bgColor: "#fcf9f3",
+                routeColor: "#f2be41",
+                hoverTextColor: "#d8a836",
+              })
             }
           >
             Sahara
           </NavItem>
-          <NavItem onMouseEnter={() => handleOnMouseEnter({ name: "Citrus" })}>
+          <NavItem
+            onMouseEnter={() =>
+              handleOnMouseEnter({
+                name: "Citrus",
+                bgColor: "#fbfcf9",
+                routeColor: "#93b74e",
+                hoverTextColor: "#b3dd60",
+              })
+            }
+          >
             Citrus
           </NavItem>
         </ul>

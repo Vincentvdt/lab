@@ -27,9 +27,11 @@ const NavItem = ({
       className="cursor-pointer hover:underline"
     >
       <Link
-        className="curs-pointer"
+        className="curs-pointer transition"
         href={href}
-        style={{ color: state.active ? state.view.hoverTextColor : "" }}
+        style={{
+          color: state.active ? state.view.hoverTextColor : "",
+        }}
       >
         {children}
       </Link>

@@ -32,9 +32,7 @@ const Header = () => {
     }
   };
   const handleOnMouseLeave = () => {
-    // don’t reset/unmount yet — let reverse play out
     state.timeline.timeScale(1.5).reverse();
-    // optional: if already at start, fire immediately
     if (state.timeline.progress() === 0) {
       dispatch({ type: "reset" });
       dispatch({ type: "set-active", payload: false });
@@ -53,7 +51,11 @@ const Header = () => {
           <NavItem
             onMouseEnter={() =>
               handleOnMouseEnter({
-                name: "Legion",
+                route: {
+                  name: "Legion",
+                  description:
+                    "Aromatic aroma con panna, crema so coffee robust coffee barista, café au lait trifecta that strong blue mountain cortado aftertaste.",
+                },
                 bgColor: "#110402",
                 routeColor: "#d1ed3d",
                 hoverTextColor: "#f28073",
@@ -62,10 +64,15 @@ const Header = () => {
           >
             Legion
           </NavItem>
+
           <NavItem
             onMouseEnter={() =>
               handleOnMouseEnter({
-                name: "Sahara",
+                route: {
+                  name: "Sahara",
+                  description:
+                    "Doppio, in, con panna, half and half, dark, viennese aftertaste caffeine aged cultivar mug shop flavour.",
+                },
                 bgColor: "#fcf9f3",
                 routeColor: "#f2be41",
                 hoverTextColor: "#d8a836",
@@ -77,7 +84,11 @@ const Header = () => {
           <NavItem
             onMouseEnter={() =>
               handleOnMouseEnter({
-                name: "Citrus",
+                route: {
+                  name: "Citrus",
+                  description:
+                    "Barista at, whipped, brewed americano ut, black americano spoon crema, black carajillo, con panna, qui galão crema aged arabica.",
+                },
                 bgColor: "#fbfcf9",
                 routeColor: "#93b74e",
                 hoverTextColor: "#b3dd60",

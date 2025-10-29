@@ -15,8 +15,13 @@ import {
   useReducer,
 } from "react";
 
-export type HoverView = {
+type RouteArgs = {
   name: string;
+  description: string;
+};
+
+export type HoverView = {
+  route: RouteArgs;
   bgColor: string;
   routeColor: string;
   hoverTextColor: string;
@@ -38,12 +43,15 @@ export type MenuContextValue = {
   dispatch: Dispatch<Action>;
 };
 
-const DEFAULT_VIEW: HoverView = {
-  name: "default",
+const DEFAULT_VIEW = {
+  route: {
+    name: "default",
+    description: "default",
+  },
   bgColor: "#ffffff",
   routeColor: "#222222",
   hoverTextColor: "#000000",
-};
+} as const satisfies HoverView;
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
